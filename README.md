@@ -22,34 +22,34 @@ Or install it yourself as:
 
 ### Basic
 
-    ```ruby
-    TEXT=<<EOS
-      this is http://www.youtube.com/watch?v=YOUTUBEID youtube.
-      this is http://vimeo.com/VIMEOID vimeo
-    EOS
+```ruby
+TEXT=<<EOS
+  this is http://www.youtube.com/watch?v=YOUTUBEID youtube.
+  this is http://vimeo.com/VIMEOID vimeo
+EOS
 
-    puts Url2embed::to_html(TEXT)
-    ```
+puts Url2embed::to_html(TEXT)
+```
 
-    ```
-    this is <iframe src="//www.youtube.com/embed/YOUTUBEID?rel=0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="420" height="315"></iframe> youtube.
-    this is <iframe src="//player.vimeo.com/video/VIMEOID" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="400" height="225"></iframe> vimeo
-    ```
+```
+this is <iframe src="//www.youtube.com/embed/YOUTUBEID?rel=0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="420" height="315"></iframe> youtube.
+this is <iframe src="//player.vimeo.com/video/VIMEOID" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="400" height="225"></iframe> vimeo
+```
 
 ### Customize Attributes
 
-	```ruby
-	puts Url2embed::to_html(TEXT) { |fragment|
-		# fragment is Nokogiri::XML::Element
-		fragment[:hoge] = "foo"
-		fragment
-	}
-	```
+```ruby
+puts Url2embed::to_html(TEXT) { |fragment|
+	# fragment is Nokogiri::XML::Element
+	fragment[:hoge] = "foo"
+	fragment
+}
+```
 
-    ```
-    this is <iframe src="//www.youtube.com/embed/YOUTUBEID?rel=0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="420" height="315" hoge="foo"></iframe> youtube.
-    this is <iframe src="//player.vimeo.com/video/VIMEOID" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="400" height="225" hoge="foo"></iframe> vimeo
-    ```
+```
+this is <iframe src="//www.youtube.com/embed/YOUTUBEID?rel=0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="420" height="315" hoge="foo"></iframe> youtube.
+this is <iframe src="//player.vimeo.com/video/VIMEOID" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" frameborder="0" width="400" height="225" hoge="foo"></iframe> vimeo
+```
 
 ## Contributing
 
