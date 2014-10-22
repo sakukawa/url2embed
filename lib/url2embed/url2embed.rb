@@ -41,7 +41,7 @@ module Url2embed
       default_attr.merge(site_default_attr(site[:type])).each { |k,v|
         f[k] = v
       }
-      f = yield(f,site) if block
+      f = yield(f,site) || r if block
       f.to_s
     }
   end
